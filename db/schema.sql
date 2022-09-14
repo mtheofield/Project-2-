@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS event_app;
+
+CREATE DATABASE event_app;
