@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Image extends Model {}
 
@@ -27,7 +27,7 @@ gallery_id: {
     type: DataTypes.INTEGER,
     allowNull: false, 
     references: {
-        modelName: 'Gallery',
+        model: 'Gallery',
         key: 'id',
     },
 },
@@ -36,13 +36,12 @@ user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-        modelName: 'User',
+        model: 'User',
         key: 'id', 
     }
-}
-    },
-
-    {
+},
+},
+{
         sequelize,
         timestamps: true,  
         freezeTableName: true,
