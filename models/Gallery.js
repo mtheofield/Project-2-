@@ -19,8 +19,8 @@ Gallery.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            Model:"users",
-            key: "users_id",
+            model:"User",
+            key: "id",
         },
     }
   },
