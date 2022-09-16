@@ -18,7 +18,19 @@
 
 # User Story
 
+- As a user
+- I want to sign up for an app that will allow me to upload artwork to a gallery and store on a server.
+
 # Technologies Used
+
+- Sequelize
+- MySQL
+- Express.js
+- Node.js
+- Handlebars.js
+- Express Sessions
+
+# Team Members
 
 - Lawrence Tillery https://github.com/tillzmh
 - Mary Theofield https://github.com/mtheofield
