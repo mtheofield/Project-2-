@@ -1,8 +1,22 @@
 <div class="gallery">
-    <div class="gallery-list"></div>
+    <h1 class="app-title"><i class="fab "></i>Gallery</h1>
+    <div class="gallery-list">
+         {{#each galleryitems as |gallery|}}
+         <div class="gallery-list-item">
+         <h3>{{gallery.name}}</h3>
+         <div class="gallery-image"></div>
+         <div class="gallery-image-form">
+            <input id="fileupload" type="file" name="fileupload" />
+            <button id="upload-button" onclick="uploadFile({{gallery.id}})"> Upload </button>
+         </div>
+         </div>
+    {{/each}}
+    </div>
     <div class="gallery-form">
-        <input id="fileupload" type="file" name="fileupload" />
-        <button id="upload-button" onclick="uploadFile()"> Upload </button>
+        {{!-- <input id="fileupload" type="file" name="fileupload" />
+        <button id="upload-button" onclick="uploadFile()"> Upload </button> --}}
+        <input type="text" placeholder= 'Gallery name' id="name-input"/>
+        <button id="add new gallery button" onclick="handlenewgallery()"> Add new Gallery</button>
     </div>
 
 </div>
