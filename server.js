@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
 const session = require('express-session');
 const dotenv = require('dotenv');
+const fileUpload = require ('express-fileupload')
 dotenv.config();
 const app = express();
 console.log(process.env.API_KEY);
@@ -21,6 +22,7 @@ const sess = {
         db: sequelize
     })
 };
+app.use(fileUpload());
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

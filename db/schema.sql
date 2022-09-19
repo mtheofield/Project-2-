@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS event_app;
+DROP DATABASE IF EXISTS gallery_app;
 
-CREATE DATABASE event_app;
+CREATE DATABASE gallery_app;
