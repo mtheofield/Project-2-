@@ -29,7 +29,7 @@ const updateGalleryHandler = async (event) => {
 
     if (response.status === 200) {
         document.location.replace('/dashboard');
-    } else {alert(response.status === 404 ? 'No gallery found' : 'Gallery not found');}
+    } else {alert(response.status === 404 ? 'failed to delete gallery' : 'Unable to delete gallery');}
 };
 
 document
