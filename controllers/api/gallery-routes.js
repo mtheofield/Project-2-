@@ -42,6 +42,21 @@ router.post('/upload/:gallery_id', (req, res) => {
    
 });
 
+router.get('/upload/:id', function(req, res) { 
+     res.render('media', {'layout': 'main', 'id': req.params.id,'cloudinaryName':process.env.CLOUDINARY_CLOUD_NAME, 'cloudinaryUrl': process.env.CLOUDINARY_UPLOAD_PRESET})})  
+     
+     router.get('/list', function(req, res) 
+     {let images = [];  
+        cloudinary.fetchGallery()   
+         .then((response) => 
+         {      // console.log(response.resources)      
+            //res.render('medialist', {'layout': 'main', 'mediaItems': response.resources})    })
+            console.log(response)
+     res.render('medialist', {'layout': 'main'});
+    });
+});
+
+  module.exports = router;
 
 router.delete('/:id', (req, res) => {
     

@@ -4,7 +4,14 @@
          {{#each galleryitems as |gallery|}}
          <div class="gallery-list-item">
          <h3>{{gallery.name}}</h3>
-         <div class="gallery-image"></div>
+         <div class="gallery-image-list">
+          {{#each gallery.images.resources as |image|}}
+          <div>
+            <img src="{{image.url}}"/>
+          </div>
+         {{/each}}
+
+         </div>
          <div class="gallery-image-form">
             <input id="fileupload" type="file" name="fileupload" class="file-upload"/>
             <button class="btn" id="upload-button" onclick="uploadFile({{gallery.id}})"> Upload </button>

@@ -10,6 +10,9 @@
       <img class="images" src="https://i.etsystatic.com/11771780/r/il/98b5a5/924555576/il_570xN.924555576_rhom.jpg" alt="" />
       <img class="images" src="https://i.pinimg.com/736x/28/ab/71/28ab71de15b11c195dfb90efd6f1ac11.jpg" alt="" />
       <img class="images" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1200px-Great_Wave_off_Kanagawa2.jpg" alt="" />
-
+    {{#each images.resources as |image|}}
+            <img src="{{image.url}}"/>
+        
+         {{/each}}
 
 {{/if}}

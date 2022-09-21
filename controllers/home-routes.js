@@ -10,8 +10,12 @@ cloudinary.config({
     secure: true
   });
 
-router.get('/', (req, res) => {
-        res.render('home', { loggedIn: !!req.session.user_id });    
+router.get('/', async (req, res) => {
+    const images= await cloudinary.v2.search
+    .expression('resource_type:image')
+    .max_results(30)
+    .execute()
+        res.render('home', { loggedIn: !!req.session.user_id, images});    
 });
 
 router.get('/gallery', (req, res) => {
@@ -37,7 +41,7 @@ router.get('/gallery', (req, res) => {
             gallery.images=images
             newGalleries.push(gallery)
         }
-        console.log(newGalleries);
+        console.log(JSON.stringify(newGalleries));
         console.log('test');
         res.render('gallery', { loggedIn: true, galleryitems:newGalleries });    
     })
