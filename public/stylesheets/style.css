@@ -2,7 +2,7 @@
   --primary: white;
   --secondary: rgb(106, 166, 235);
   --tertiary: rgb(54, 233, 129);
-  --light: rgb(216, 201, 201);
+  --light: rgb(186, 148, 170);
   --black: black;
   --border-radius: 1px;
 }
@@ -20,12 +20,12 @@ main {
   font-size: 20px;
   text-decoration: none;
   padding: 6px 5px;
-  width: 60%;
+  width: 40%;
   display: block;
   margin: 5px 0;
   border-radius: var(--border-radius);
   color: white;
-  background-color: var(--light);
+  background-color: rgb(238, 208, 233);
 }
 
 .btn:hover {
@@ -60,7 +60,6 @@ body {
 
 h1,
 h2,
-h3,
 h5,
 h6 {
   font-weight: 700;
@@ -106,14 +105,44 @@ p {
   background-size: cover;
   position: relative;
 }
+.gallery {
+    color: var(--light);
+    color: var(--black);
+    border-color: black;
+}
 .app-title {
-  font-size: 45px;
+  font-size: 40px;
   background-color: var(--primary);
-  color: var(--black);
   display: inline-block;
   border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light);
+  border-color: black;
+  border-width: 3px;
+  color: var(--light);
 }
+.gallery-image-form {
+    color: var(--light);
+    padding: 1%;
+    width: 123%;
+}
+h3{
+  font-weight: 700;
+  margin: 0;
+  color: var(--light);
+  line-height: 1.25;
+}
+
+.file-upload {
+    font-size: 20px;
+    text-decoration: none;
+    width: 30%;
+  display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: white;
+  background-color: white;
+  color: black;
+}
+
 
 .list-group {
   padding: 0;
@@ -203,5 +232,5 @@ footer {
 .images {
   width: 40%;
   height: 500px;
-  margin: 10px 0;
+  margin: 10px 0px 10px 0px;
 }
