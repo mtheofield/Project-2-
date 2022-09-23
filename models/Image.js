@@ -15,14 +15,11 @@ Image.init(
         type: DataTypes.STRING,
         allowNull:true,
     },
-    artist: {
+    url: {
         type: DataTypes.STRING,
         allowNull:true,
     },
-filenames: {
-    type: DataTypes.STRING,
-    allowNull:true,
-},
+
 gallery_id: {
     type: DataTypes.INTEGER,
     allowNull: false, 

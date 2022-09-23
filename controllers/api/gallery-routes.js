@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Gallery } = require('../../models');
+const { Gallery, Image } = require('../../models');
 const cloudinary= require('cloudinary');
 require('dotenv').config();
 const fs= require ('fs');
@@ -35,13 +35,23 @@ router.post('/upload/:gallery_id', (req, res) => {
     req.files.file.mv('./'+req.files.file.name, function(err) {
         cloudinary.v2.uploader.upload('./'+req.files.file.name, {
             tags:[req.params.gallery_id]
-        }).then((result)=>{
-            fs.unlinkSync('./'+req.files.file.name)
-        });
+        }).then((result)=>{ console.log(result)
+                Image.create({
+                    url: result.url,
+                    user_id: req.session.user_id,
+                    gallery_id: req.params.gallery_id
+                })
+                fs.unlinkSync('./'+req.files.file.name)
+                res.send ({success:true})
+            })
+            .catch(err => {
+                fs.unlinkSync('./'+req.files.file.name)
+                console.log(err);
+                res.status(500).json(err);
+            });
     });
    
 });
-
 router.get('/upload/:id', function(req, res) { 
      res.render('media', {'layout': 'main', 'id': req.params.id,'cloudinaryName':process.env.CLOUDINARY_CLOUD_NAME, 'cloudinaryUrl': process.env.CLOUDINARY_UPLOAD_PRESET})})  
      
