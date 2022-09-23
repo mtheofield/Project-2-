@@ -134,6 +134,7 @@ p {
     padding: 1%;
     width: 123%;
 }
+
 h3{
   font-weight: 700;
   margin: 0;
@@ -257,4 +258,8 @@ footer {
   height: 500px;
   margin: 10px 0px 10px 0px;
 }
-
+.image {
+  width: 80%;
+  height: 500px;
+  margin: 10px 0px 10px 0px;
+}

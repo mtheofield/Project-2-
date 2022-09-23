@@ -1,4 +1,4 @@
-const {Gallery} = require('../models');
+const {Gallery, Image} = require('../models');
 const router = require('express').Router();
 const cloudinary= require('cloudinary');
 require('dotenv').config();
@@ -11,10 +11,16 @@ cloudinary.config({
   });
 
 router.get('/', async (req, res) => {
-    const images= await cloudinary.v2.search
-    .expression('resource_type:image')
-    .max_results(30)
-    .execute()
+    const imagesfromdb = await Image.findAll({
+        attributes: [
+            'url',
+        ],
+        
+    })
+    let images= []
+    if (imagesfromdb) {
+    images= imagesfromdb.map(image => image.get({ plain: true }));
+    }
         res.render('home', { loggedIn: !!req.session.user_id, images});    
 });
 
@@ -34,10 +40,19 @@ router.get('/gallery', (req, res) => {
         const galleryitems = dbPostData.map(gallery => gallery.get({ plain: true }));
         const newGalleries = []
         for(let gallery of galleryitems){
-            const images= await cloudinary.v2.search
-            .expression('resource_type:image AND tags='+gallery.id)
-            .max_results(30)
-            .execute()
+           const imagesfromdb = await Image.findAll({
+                where: {
+                    gallery_id: gallery.id
+                },
+                attributes: [
+                    'url',
+                ],
+                
+            })
+            let images= []
+            if (imagesfromdb) {
+            images= imagesfromdb.map(image => image.get({ plain: true }));
+            }
             gallery.images=images
             newGalleries.push(gallery)
         }
